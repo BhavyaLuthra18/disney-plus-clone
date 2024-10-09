@@ -1,24 +1,24 @@
-import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
-import { getAuth, GoogleAuthProvider } from 'firebase/auth';
-import { getStorage } from 'firebase/storage';
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getStorage } from "firebase/storage";
 const firebaseConfig = {
-  apiKey: "AIzaSyCcEu0JfhLvRTv2BhAOW8j8rtoMsJUk2WM",
-  authDomain: "disneyplus-clone-32ef2.firebaseapp.com",
-  projectId: "disneyplus-clone-32ef2",
-  storageBucket: "disneyplus-clone-32ef2.appspot.com",
-  messagingSenderId: "907618044336",
-  appId: "1:907618044336:web:1bb700449db7ab34bcee75",
-  measurementId: "G-J3Y5K82PED"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
-  const firebaseApp = initializeApp(firebaseConfig);
-  const db = getFirestore(firebaseApp);
-  // instance auth instance for user authentication
-  const auth = getAuth(firebaseApp);
-  // social Google authentication provider for signing in with  google
-  const provider = new GoogleAuthProvider()
-  const storage = getStorage(firebaseApp);
+const firebaseApp = initializeApp(firebaseConfig);
+const db = getFirestore(firebaseApp);
+// instance auth instance for user authentication
+const auth = getAuth(firebaseApp);
+// social Google authentication provider for signing in with  google
+const provider = new GoogleAuthProvider();
+const storage = getStorage(firebaseApp);
 
-  export {auth, provider,storage ,db}
-  export default firebaseApp;
+export { auth, provider, storage, db };
+export default firebaseApp;
